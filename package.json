@@ -1,0 +1,13 @@
+{
+  "name": "crashlens",
+  "version": "1.0.0",
+  "bin": {
+    "crashlens": "./bin/crashlens.js"
+  },
+  "main": "src/index.js",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "boxen": "^5.1.2",
+    "chokidar": "^3.6.0"
+  }
+}
