@@ -5,7 +5,7 @@ function matchError(text) {
   for (const line of lines) {
     for (const rule of patterns) {
       if (rule.test(line)) {
-        return { id: rule.id, line, ...rule.explain(line) };
+        return { id: rule.id, line, fullText: text, ...rule.explain(line) };
       }
     }
   }

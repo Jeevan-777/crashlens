@@ -61,7 +61,8 @@ module.exports = [
   },
   {
     id: "unhandled-rejection",
-    test: (line) => /UnhandledPromiseRejection|unhandledRejection/i.test(line),
+    test: (line) =>
+      /UnhandledPromiseRejection|unhandledRejection|^Error:/i.test(line),
     explain: () => ({
       title: "Unhandled promise rejection",
       explanation: "An async function threw an error that nothing caught.",

@@ -1,10 +1,21 @@
 {
   "name": "crashlens",
   "version": "1.0.0",
+  "description": "A CLI dev-server watcher for Node/Express/MongoDB that catches runtime crashes and explains them in plain English with fixes.",
   "bin": {
     "crashlens": "./bin/crashlens.js"
   },
   "main": "src/index.js",
+  "keywords": [
+    "cli",
+    "devtools",
+    "express",
+    "mongodb",
+    "error-handling",
+    "developer-tools"
+  ],
+  "author": "Jeevan",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",
     "boxen": "^5.1.2",

@@ -1,4 +1,4 @@
-const { spawn } = require("child_process");
+const { spawn, exec } = require("child_process");
 const chokidar = require("chokidar");
 const { matchError } = require("./rules");
 const { printError } = require("./formatter");
@@ -51,9 +51,18 @@ class Watcher {
     clearTimeout(this.restartTimer);
     this.restartTimer = setTimeout(() => {
       this.hangDetector.clear();
+      this._killChild(() => this.start());
+    }, 150);
+  }
+
+  _killChild(callback) {
+    if (!this.child || this.child.killed) return callback();
+    if (process.platform === "win32") {
+      exec(`taskkill /pid ${this.child.pid} /T /F`, () => callback());
+    } else {
       this.child.kill();
-      this.start();
-    }, 150); // debounce rapid saves
+      callback();
+    }
   }
 
   _handleSignals() {
