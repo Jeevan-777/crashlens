@@ -10,7 +10,3 @@ function crashlensMiddleware() {
 }
 
 module.exports = crashlensMiddleware;
-
-// Usage in the user's app:
-// const crashlensMiddleware = require('crashlens/middleware');
-// app.use(crashlensMiddleware());

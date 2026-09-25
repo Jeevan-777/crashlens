@@ -4,27 +4,23 @@ A CLI dev-server watcher for Node/Express/MongoDB projects. It wraps your dev se
 
 ## Install
 
-```bash
-git clone https://github.com/<your-username>/crashlens.git
-cd crashlens
-npm install
-```
-
-## Usage
+No install needed — run directly:
 
 ```bash
-node bin/crashlens.js -- node server.js
-node bin/crashlens.js -- npm run dev
-node bin/crashlens.js --raw --hang-timeout 3000 -- node server.js
+npx crashlens-node -- node server.js
 ```
 
-- `--raw` — also print the original raw log line alongside the formatted explanation
-- `--hang-timeout <ms>` — how long to wait before flagging a request as hung (default: 5000)
+Or install globally:
+
+```bash
+npm install -g crashlens-node
+crashlens -- node server.js
+```
 
 To enable hang detection, add the middleware to your Express app:
 
 ```js
-const crashlensMiddleware = require("crashlens/src/middleware");
+const crashlensMiddleware = require("crashlens-node/src/middleware");
 app.use(crashlensMiddleware());
 ```
 
